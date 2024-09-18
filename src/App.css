@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #000425;
+}
+
+@keyframes starfield {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.header {
+  position: relative;
+  background-image: url('./fondo/galaxy.jpg'); /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  width: 100%;
+  height: 130px;
+  margin: 0 auto;
+  border-radius: 0 0 4px 4px;
+  text-align: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Evita que las estrellas se salgan del contenedor */
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./fondo/stars.png') repeat; /* Imagen de estrellas */
+  background-size: 300px 50px; /* Tamaño del patrón de estrellas */
+  animation: starfield 60s linear infinite; /* Animación de movimiento */
+  opacity: 1; /* Ajusta la opacidad si es necesario */
+  z-index: 1; /* Asegura que el pseudo-elemento esté detrás del texto */
+}
+
+h1 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 3rem;
+  margin: 0;
+  position: relative; /* Asegura que el texto esté por encima del pseudo-elemento */
+  z-index: 2; /* Asegura que el texto esté por encima del fondo animado */
+}
+
+.container {
+  background-color: #f7f7f7;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  width: 85%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.explicacion-interes {
+  background-color: #dddcdc;
+  text-align: justify;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #34495e;
+}
+
+.explicacion-interes h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.explicacion-interes p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+form .column {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.column div {
+  margin-bottom: 0.25rem;
+  width: 240px;
+}
+
+.column div label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #34495e;
+}
+
+.column div select, 
+.column div input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #dcdde1;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  transition: border-color 0.3s ease;
+}
+
+.column div select:focus, 
+.column div input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.btnSubmit input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #002d4b;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btnSubmit input[type="submit"]:hover {
+  background-color: #001625;
+}
+
+.mensaje {
+  background: linear-gradient(100deg, #001b66, #440025);
+  background-color: #440025;
+  padding: 1rem;
+  width: 88%;
+  margin: 0 auto;
+  border-radius: 8px 8px 0 0;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.error {
+  padding: 0.8rem;
+  text-align: center;
+  color: red;
+  margin: 1rem auto;
+}
+
+.resultado {
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 768px) {
+  form .column {
+    flex-wrap: wrap;
+  }
+  .container {
+    width: 80%;
+  }
+}
